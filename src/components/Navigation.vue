@@ -29,19 +29,19 @@
         <transition name="slide-fade">
         <ul class="navigation-menu">
           <li class="has-submenu" @click="closeMenu">
-            <router-link to="/">Home</router-link>
+            <router-link to="/" exact>Home</router-link>
           </li>
           
           <li class="has-submenu" @click="closeMenu">
-            <router-link to="/start">How To Start</router-link>
+            <router-link to="/start" exact>How To Start</router-link>
           </li>
 
           <li class="has-submenu" @click="closeMenu">
-            <router-link to="/about">About</router-link>
+            <router-link to="/about" exact>About</router-link>
           </li>
           
           <li class="has-submenu" @click="closeMenu">
-            <router-link to="/contact">Contact</router-link>
+            <router-link to="/contact" exact>Contact</router-link>
           </li>
         </ul>
         </transition>
@@ -80,9 +80,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
 @import 'src/assets/navigation';
-
 
 a {
   color: #777777
