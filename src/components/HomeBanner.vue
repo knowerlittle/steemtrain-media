@@ -70,6 +70,7 @@ export default {
 	color: #fff;
 	padding: 2px 12px;
 	border-radius: 10px;
+	box-shadow: 0px 0px 15px #888888;
 }
 
 </style>

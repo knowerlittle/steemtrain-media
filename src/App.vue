@@ -21,15 +21,16 @@ export default {
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,500');
+@import 'src/assets/variables';
 
 #app {
   font-family: 'Roboto Mono', monospace;
   ::selection {
-    background: rgba(255, 88, 88, 0.7);
+    background: $secondary;
     color: #ffffff;
   }
   ::-moz-selection {
-      background: rgba(255, 88, 88, 0.7);
+      background: $secondary;
       color: #ffffff;
   }
 
@@ -41,5 +42,7 @@ export default {
       font-size: 15px;
   }
 }
+
+
 
 </style>

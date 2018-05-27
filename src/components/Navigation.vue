@@ -11,9 +11,10 @@
       <!-- Logo -->
 
       <div class="menu-extras">
-        <div class="menu-item">
+        <div class="menu-item" @click="toggleMenu">
           <!-- Mobile Toggle -->
-          <a class="navbar-toggle">
+          <a class="navbar-toggle"
+            v-bind:class="{ 'open': isOpen }">
             <div class="lines">
               <span></span>
               <span></span>
@@ -24,24 +25,26 @@
         </div>
       </div>
 
-      <div id="navigation">
+      <div id="navigation" v-bind:class="{open: isOpen}">
+        <transition name="slide-fade">
         <ul class="navigation-menu">
-          <li class="has-submenu">
+          <li class="has-submenu" @click="closeMenu">
             <router-link to="/">Home</router-link>
           </li>
           
-          <li class="has-submenu">
+          <li class="has-submenu" @click="closeMenu">
             <router-link to="/start">How To Start</router-link>
           </li>
 
-          <li class="has-submenu">
+          <li class="has-submenu" @click="closeMenu">
             <router-link to="/about">About</router-link>
           </li>
           
-          <li class="has-submenu">
+          <li class="has-submenu" @click="closeMenu">
             <router-link to="/contact">Contact</router-link>
           </li>
         </ul>
+        </transition>
       </div>
 
     </div>
@@ -51,63 +54,99 @@
 <script>
 export default {
   name: 'Navigation',
+  data() {
+    return {
+      isOpen: false,
+    }
+  },
+
+  methods: {
+    toggleMenu() {
+      this.isOpen = !this.isOpen;
+    },
+    closeMenu() {
+      this.isOpen = false;
+    },
+  },
+
+  computed: {
+    showMenu() {
+      return !this.isOpen; 
+    }
+  }
+
+
 };
 </script>
 
 <style scoped lang="scss">
 @import 'src/assets/variables';
 
+
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+}
+
 a {
   color: #777777
 }
 
 #topnav {
-  position: fixed;
-  right: 0;
-  left: 0;
-  top: 0;
-  z-index: 1030;
-  background-color: white;
-  border: 0;
-  // -webkit-transition: all .5s ease;
-  transition: all .5s ease;
-  min-height: 62px;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    z-index: 1030;
+    background-color: #ffffff;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    border: 0;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
+    min-height: 62px;
+}
 
-  .navigation-menu {
+#topnav .navigation-menu {
     float: right;
     list-style: none;
     margin: 0;
     padding: 0;
+}
 
-    li {
-      float: left;
-      display: block;
-      position: relative;
-      margin: 0 5px;
+#topnav .navigation-menu > li {
+    float: left;
+    display: block;
+    position: relative;
+    margin: 0 5px;
+}
 
-      a {
-        display: block;
-        font-size: 12px;
-        color: #777777;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        -webkit-transition: all .3s ease;
-        transition: all .3s ease;
-        line-height: 20px;
-        padding-left: 10px;
-        padding-right: 15px;
-      }
+#topnav .navigation-menu > li > a {
+    display: block;
+    font-size: 12px;
+    color: #777777;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    line-height: 20px;
+    padding-left: 10px;
+    padding-right: 15px;
+}
 
-      .submenu li a i {
-        margin-right: 10px;
-        font-size: 14px;
-      }
+#topnav .navigation-menu > li .submenu li a i {
+    margin-right: 10px;
+    font-size: 14px;
+}
 
-    }
-  }
-
-  .logo {
+#topnav .logo {
     float: left;
     line-height: 70px;
     -webkit-transition: all .3s ease;
@@ -115,150 +154,345 @@ a {
     color: #333;
     font-weight: 700;
     font-size: 22px;
-  }
+}
 
-  .menu-extras {
+#topnav .menu-extras {
     float: right;
-  }
+}
 
-  .has-submenu.active .submenu li.active > a {
+#topnav .has-submenu.active .submenu li.active > a {
     color: $primary;
-  }
+}
 
-  .has-submenu.active a {
+#topnav .has-submenu.active a {
     color: $primary;
-  }
-
-  .has-submenu.active .menu-arrow {
+}
+#topnav .has-submenu.active .menu-arrow{
     border-color: $primary;
-  }
+}
 
-  .navbar-toggle {
+.has-submenu {
+    position: relative;
+}
+
+#topnav .navbar-toggle {
     border: 0;
     position: relative;
     padding: 0;
     margin: 0;
     cursor: pointer;
-
-    .lines {
-      width: 25px;
-      display: block;
-      position: relative;
-      margin: 28px auto;
-      height: 15px;
-    }
-
-    span {
-      height: 2px;
-      width: 100%;
-      background-color: white;
-      display: block;
-      margin-bottom: 5px;
-      -webkit-transition: -webkit-transform .5s ease;
-      transition: -webkit-transform .5s ease;
-      transition: transform .5s ease, -webkit-transform .5s ease;
-
-      :last-child {
-        margin-bottom: 0;
-      }
-    }
-
-  }
-
-  .navbar-toggle.open span {
-    position: absolute;
-
-    :first-child {
-      top: 6px;
-      -webkit-transform: rotate(45deg);
-      transform: rotate(45deg);
-    }
-
-    :nth-child(2) {
-      visibility: hidden;
-    }
-
-    :last-child {
-      width: 100%;
-      top: 6px;
-      -webkit-transform: rotate(-45deg);
-      transform: rotate(-45deg);
-    }
-
-    :hover {
-      background-color: #19b798;
-    }
-  }
-
-  .navbar-toggle:hover,
-  .navbar-toggle:focus,
-  .navigation-menu > li > a:hover,
-  .navigation-menu > li > a:focus {
-    background-color: transparent;
-  }
 }
 
-.has-submenu {
-  position: relative;
+#topnav .navbar-toggle .lines {
+    width: 25px;
+    display: block;
+    position: relative;
+    margin: 28px auto;
+    height: 15px;
+}
+
+#topnav .navbar-toggle span {
+    height: 2px;
+    width: 100%;
+    background-color: #ffffff;
+    display: block;
+    margin-bottom: 5px;
+    -webkit-transition: -webkit-transform .5s ease;
+    transition: -webkit-transform .5s ease;
+    transition: transform .5s ease, -webkit-transform .5s ease;
+}
+
+#topnav .navbar-toggle span:last-child {
+    margin-bottom: 0;
+}
+
+#topnav .navbar-toggle.open span {
+    position: absolute;
+}
+
+#topnav .navbar-toggle.open span:first-child {
+    top: 6px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+#topnav .navbar-toggle.open span:nth-child(2) {
+    visibility: hidden;
+}
+
+#topnav .navbar-toggle.open span:last-child {
+    width: 100%;
+    top: 6px;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+#topnav .navbar-toggle.open span:hover {
+    background-color: #19b798;
+}
+
+#topnav .navbar-toggle:hover,
+#topnav .navbar-toggle:focus,
+#topnav .navigation-menu > li > a:hover,
+#topnav .navigation-menu > li > a:focus {
+    background-color: transparent;
 }
 
 .menu-arrow {
-  border: solid #777777;
-  border-width: 0 1px 1px 0;
-  display: inline-block;
-  padding: 3px;
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-  position: absolute;
-  right: 5px;
-  top: 30px;
+    border: solid #777777;
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    position: absolute;
+    right: 5px;
+    top: 30px;
 }
 
 .submenu-arrow {
-  border: solid #777777;
-  border-width: 0 1px 1px 0;
-  display: inline-block;
-  padding: 3px;
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-  position: absolute;
-  right: 20px;
-  top: 18px;
+    border: solid #777777;
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    position: absolute;
+    right: 20px;
+    top: 18px;
 }
 
 @media (min-width: 992px) {
-  #topnav {
-
-    .navigation-menu > li > a {
-      padding-top: 25px;
-      padding-bottom: 25px;
-      min-height: 62px;
+    #topnav .navigation-menu > li > a {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        min-height: 62px;
+    }
+    #topnav .navigation-menu > li.last-elements .submenu {
+        left: auto;
+        right: 0;
+    }
+    #topnav .navigation-menu > li.last-elements .submenu > li.has-submenu .submenu {
+        left: auto;
+        right: 100%;
+        margin-left: 0;
+        margin-right: 10px;
+    }
+    #topnav .navigation-menu > li .submenu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        padding: 10px 0;
+        list-style: none;
+        min-width: 180px;
+        visibility: hidden;
+        opacity: 0;
+        margin-top: 10px;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+        background-color: #ffffff;
+        box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.1);
+    }
+    #topnav .navigation-menu > li .submenu.megamenu {
+        white-space: nowrap;
+        width: auto;
+    }
+    #topnav .navigation-menu > li .submenu.megamenu > li {
+        overflow: hidden;
+        width: 180px;
+        display: inline-block;
+        vertical-align: top;
+    }
+    #topnav .navigation-menu > li .submenu > li .submenu {
+        left: 100%;
+        top: 0;
+        margin-left: 10px;
+        margin-top: -1px;
+    }
+    #topnav .navigation-menu > li .submenu li {
+        position: relative;
+    }
+    #topnav .navigation-menu > li .submenu li ul {
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+    }
+    #topnav .navigation-menu > li .submenu li a {
+        display: block;
+        padding: 10px 20px;
+        clear: both;
+        white-space: nowrap;
+        font-size: 14px;
+        letter-spacing: 0.03em;
+        color: #7a7d84;
+        transition: all 0.3s;
     }
 
-    #navigation {
-      display: block !important;
+    #topnav .navigation-menu > li .submenu li a:hover,#topnav .navigation-menu .has-submenu .submenu > li:hover > a {
+        color: $primary;
     }
-  }
+    #topnav .navbar-toggle {
+        display: none;
+    }
+    #topnav #navigation {
+        display: block !important;
+    }
+    #topnav .navigation-menu > li:hover > a {
+        color: $primary !important;
+    }
+    #topnav .navigation-menu > li:hover > .menu-arrow {
+        border-color: #ff5858;
+    }
+    #topnav.scroll-active .navigation-menu > li > a {
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+    #topnav.scroll .navigation-menu > li > a {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    #topnav.scroll {
+        top: 0;
+    }
 }
 
 @media (max-width: 991px) {
-  #navigation {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    display: none;
-    height: auto;
-    padding-bottom: 0;
-    overflow: auto;
-    border-top: 1px solid #f0f0f0;
-    border-bottom: 1px solid #f0f0f0;
-    background-color:white;
-
-    .open {
-      display: block;
-      overflow-y: auto;
+    .menu-arrow {
+        top: 15px;
+        right: 20px;
     }
-  }
+    .submenu-arrow {
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        position: absolute;
+        right: 20px;
+        top: 12px;
+    }
+    .logo {
+        padding: 0 !important;
+        line-height: 0;
+    }
+
+    #topnav .container {
+        width: auto;
+    }
+    #topnav .navigation-menu {
+        float: none;
+        max-height: 400px;
+    }
+    #topnav .navigation-menu > li {
+        float: none;
+    }
+    #topnav .navigation-menu > li > a {
+        color:#777777;
+        padding: 10px 20px;
+    }
+    #topnav .navigation-menu > li > a:hover,
+    #topnav .navigation-menu > li .submenu li a:hover,
+    #topnav .navigation-menu > li.has-submenu.open > a,
+    #topnav .menu-extras .menu-item .cart > a:hover,
+    #topnav .menu-extras .menu-item .search > a:hover {
+        color: $primary;
+    }
+    #topnav .navigation-menu > li > a:after {
+        position: absolute;
+        right: 15px;
+    }
+    #topnav .navigation-menu > li .submenu {
+        display: none;
+        list-style: none;
+        padding-left: 20px;
+        margin: 0;
+    }
+    #topnav .navigation-menu > li .submenu li a {
+        display: block;
+        padding: 6px 15px;
+        clear: both;
+        white-space: nowrap;
+        font-size: 14px;
+        letter-spacing: 0.03em;
+        color: #7a7d84;
+        transition: all 0.3s;
+    }
+    #topnav .navigation-menu .submenu.open .has-submenu.open > a {
+        color: #19b798;
+    }
+    #topnav .navigation-menu > li .submenu.open {
+        display: block;
+    }
+    #topnav .navigation-menu > li .submenu .submenu {
+        display: none;
+        list-style: none;
+    }
+    #topnav .navigation-menu > li .submenu .submenu.open {
+        display: block;
+    }
+    #topnav .navigation-menu > li .submenu.megamenu > li > ul {
+        list-style: none;
+        padding-left: 0;
+    }
+    #topnav .navigation-menu > li .submenu.megamenu > li > ul > li > span {
+        display: block;
+        position: relative;
+        padding: 10px 15px;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 2px;
+        color: #7a7d84;
+    }
+    #topnav .navbar-toggle span {
+        background-color: #7a7d84;
+    }
+    #topnav .navbar-header {
+        float: left;
+    }
+    #topnav .logo {
+        padding: 11px 0;
+    }
+    #topnav .logo .logo-light {
+        display: none;
+    }
+    #topnav .logo .logo-dark {
+        display: block;
+    }
+    #topnav .has-submenu.active a {
+        color: #ff5858;
+    }
+    #navigation {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        display: none;
+        height: auto;
+        padding-bottom: 0;
+        overflow: auto;
+        border-top: 1px solid #f0f0f0;
+        border-bottom: 1px solid #f0f0f0;
+        background-color: #ffffff;
+    }
+    #navigation.open {
+        display: block;
+        overflow-y: auto;
+    }
 }
+
+@media (min-width: 768px) {
+    #topnav .navigation-menu > li.has-submenu:hover > .submenu {
+        visibility: visible;
+        opacity: 1;
+        margin-top: 0;
+    }
+    #topnav .navigation-menu > li.has-submenu:hover > .submenu > li.has-submenu:hover > .submenu {
+        visibility: visible;
+        opacity: 1;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+}
+
 </style>
