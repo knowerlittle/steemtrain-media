@@ -7,6 +7,8 @@
         <router-link to="/" class="logo">
           Steemtrain.Media        
         </router-link>
+        <!-- <br> Window height: {{ windowWidth }} <br/>
+        {{ txt }} -->
       </div>
       <!-- Logo -->
 
@@ -25,27 +27,51 @@
         </div>
       </div>
 
-      <div id="navigation" v-bind:class="{open: isOpen}">
-        <transition name="slide-fade">
-        <ul class="navigation-menu">
-          <li class="has-submenu" @click="closeMenu">
-            <router-link to="/" exact>Home</router-link>
-          </li>
-          
-          <li class="has-submenu" @click="closeMenu">
-            <router-link to="/start" exact>How To Start</router-link>
-          </li>
+      
+        <div v-if="isMobile" > 
+          <transition name="slide-fade">
+            <div v-if="isOpen" id="navigation" v-bind:class="{open: isOpen}">
+              <ul class="navigation-menu">
+                <li class="has-submenu" @click="closeMenu">
+                  <router-link to="/" exact>Home</router-link>
+                </li>
+                
+                <li class="has-submenu" @click="closeMenu">
+                  <router-link to="/start" exact>How To Start</router-link>
+                </li>
 
-          <li class="has-submenu" @click="closeMenu">
-            <router-link to="/about" exact>About</router-link>
-          </li>
-          
-          <li class="has-submenu" @click="closeMenu">
-            <router-link to="/contact" exact>Contact</router-link>
-          </li>
-        </ul>
-        </transition>
-      </div>
+                <li class="has-submenu" @click="closeMenu">
+                  <router-link to="/about" exact>About</router-link>
+                </li>
+                
+                <li class="has-submenu" @click="closeMenu">
+                  <router-link to="/contact" exact>Contact</router-link>
+                </li>
+              </ul>
+            </div>
+          </transition>
+        </div>
+        <div v-else>
+          <div id="navigation">
+            <ul class="navigation-menu">
+              <li class="has-submenu" @click="closeMenu">
+                <router-link to="/" exact>Home</router-link>
+              </li>
+              
+              <li class="has-submenu" @click="closeMenu">
+                <router-link to="/start" exact>How To Start</router-link>
+              </li>
+
+              <li class="has-submenu" @click="closeMenu">
+                <router-link to="/about" exact>About</router-link>
+              </li>
+              
+              <li class="has-submenu" @click="closeMenu">
+                <router-link to="/contact" exact>Contact</router-link>
+              </li>
+            </ul>
+          </div>
+        </div>
 
     </div>
   </header>
@@ -54,9 +80,23 @@
 <script>
 export default {
   name: 'Navigation',
+
+  mounted() {
+    this.windowWidth = window.innerWidth;
+    let that = this;
+    this.$nextTick(function() {
+      window.addEventListener('resize', function(e) {
+        that.windowWidth = window.innerWidth
+      });
+    })
+  },
+
   data() {
     return {
       isOpen: false,
+      windowWidth: 0,
+      txt: '',
+      isMobile: false,
     }
   },
 
@@ -71,11 +111,19 @@ export default {
 
   computed: {
     showMenu() {
-      return !this.isOpen; 
+      return this.isOpen && this.isMobile; 
+    }
+  },
+
+  watch: {
+    windowWidth(newHeight, oldHeight) {
+      if(newHeight < '991') {
+        return this.isMobile = true;  
+      } else {
+        return this.isMobile = false;
+      }
     }
   }
-
-
 };
 </script>
 
@@ -86,6 +134,17 @@ a {
   color: #777777
 }
 
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .3s ease;
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateY(-20px);
+  opacity: 0;
+}
 
 
 </style>
