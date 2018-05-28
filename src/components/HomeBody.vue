@@ -11,19 +11,18 @@
                   v-bind:key="link.id" 
                   v-bind:class="{ 'current': isSelected(link)}"
                   @click="selectItem(link)">
-                  {{link.name}}
+                  {{ link.name }}
                 </a>
               </div>
             </div>
           </div>
         </div>
-        <div class="port portfolio-masonry mb-3">
-          <div class="portfolioContainer row">
-            <div class="col-lg-4"
-                  v-for="platform of platforms"
-                  v-bind:key="platform.id"
-                  v-show="currentSelection === 'All' ? true: filterItems(platform)">
 
+        <div class="port portfolio-masonry mb-3">
+          <transition-group name="list-complete" tag="div" class="portfolioContainer row">
+            <div class="col-lg-4"
+              v-for="platform of filteredPlatforms"
+              v-bind:key="platform.id">
               <a :href=platform.link target="_blank">
                 <div class="portfolio-box">
                   <div class="portfolio-box-img">
@@ -34,10 +33,9 @@
                     <span>{{ platform.description }}</span>
                   </div>
                 </div>
-              </a>
-            </div>
-          </div>
-
+               </a>
+             </div>
+           </transition-group>
         </div>
 
       </div>
@@ -45,6 +43,7 @@
   </div>
 
 </template>
+
 <script>
 import platforms from '@/components/menuSelection.js';
 
@@ -64,15 +63,23 @@ export default {
         { id: 7, name: 'Meme'},
         { id: 8, name: 'Funding'},
       ],
-      filteredMenu: [],
       platforms,
+      filteredPlatforms: [],
     }
   },
 
+  mounted() {
+    this.filteredPlatforms = this.createPlatformsCopy();
+  },
+
   methods: {
+    createPlatformsCopy() {
+      const platforms = Object.values(this.platforms);
+      return platforms;
+    },
     selectItem(platform) {
       this.currentSelection = platform.name;
-      return this.filteredMenu = this.filterItems(platform)
+      this.filteredPlatforms = this.createNewCopy();
     },
     isSelected({ name }) {
       return this.currentSelection === name;
@@ -80,15 +87,44 @@ export default {
     filterItems({ tag }) {
       return this.currentSelection === tag;
     },
+    createNewCopy() {
+      return this.filteredPlatforms = this.currentSelection === 'All' ? 
+        this.createPlatformsCopy() : this.filterPlatforms();
+    },
+    filterPlatforms() {
+      const newList = {};
+      Object.keys(platforms).map(key => {
+        const value = platforms[key];
+        const isValid = value.tag === this.currentSelection;
+        if (isValid) {
+          const newPlatfrom = {
+            [key] : value, 
+          };
+          return Object.assign(newList, newPlatfrom);
+        } 
+      });
+      return newList;
+    },
   },
+
 };
 </script>
 
 <style scoped lang="scss">
 @import 'src/assets/home';
 
-.flip-list-move {
-  transition: transform 1s;
+.list-complete-item {
+  transition: all 1s;
+  display: inline-block;
+  margin-right: 10px;
+}
+.list-complete-enter, .list-complete-leave-to
+/* .list-complete-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(30px);
+}
+.list-complete-leave-active {
+  position: absolute;
 }
 
 </style>

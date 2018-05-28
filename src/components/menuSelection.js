@@ -10,6 +10,7 @@ import funditionLogo from '@/assets/img/funditionLogoSm.png';
 
 export default {
   dLive: {
+    id: 1,
     name: 'DLive.io',
     link: 'http://www.dlive.io',
     img: dLiveLogo,
@@ -17,6 +18,7 @@ export default {
     tag: 'Video',
   },
   dTube: {
+    id: 2,
     name: 'D.Tube',
     link: 'https://d.tube/',
     img: dTubeLogo,
@@ -24,6 +26,7 @@ export default {
     tag: 'Video',
   },
   steepshot: {
+    id: 3,
     name: 'Steepshot.io',
     link: 'https://steepshot.io/',
     img: steepshotLogo,
@@ -31,6 +34,7 @@ export default {
     tag: 'Photo',
   },
   dSound: {
+    id: 4,
     name: 'DSound.audio',
     link: 'https://dsound.audio/',
     img: dSoundLogo,
@@ -38,6 +42,7 @@ export default {
     tag: 'Audio',
   },
   steemit: {
+    id: 5,
     name: 'Steemit.com',
     link: 'https://steemit.com',
     img: steemitLogo,
@@ -45,6 +50,7 @@ export default {
     tag: 'Blog',
   },
   busy: {
+    id: 6,
     name: 'Busy.org',
     link: 'https://busy.org',
     img: busyLogo,
@@ -52,6 +58,7 @@ export default {
     tag: 'Blog',
   },
   utopian: {
+    id: 7,
     name: 'Utopian.io',
     link: 'https://join.utopian.io/',
     img: utopianLogo,
@@ -59,6 +66,7 @@ export default {
     tag: 'Forum',
   },
   dMania: {
+    id: 8,
     name: 'dMania.lol',
     link: 'http://dmania.lol',
     img: dManiaLogo,
@@ -66,6 +74,7 @@ export default {
     tag: 'Meme',
   },
   fundition: {
+    id: 9,
     name: 'Fundition.io',
     link: 'https://fundition.io',
     img: funditionLogo,
