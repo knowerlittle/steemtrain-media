@@ -19,10 +19,10 @@
         </div>
 
         <div class="port portfolio-masonry mb-3">
-          <transition-group name="list-complete" tag="div" class="portfolioContainer row">
+          <transition-group name="list" tag="div" class="portfolioContainer row">
             <div class="col-lg-4"
               v-for="platform of filteredPlatforms"
-              v-bind:key="platform.id">
+              v-bind:key="platform.name">
               <a :href=platform.link target="_blank">
                 <div class="portfolio-box">
                   <div class="portfolio-box-img">
@@ -74,7 +74,7 @@ export default {
 
   methods: {
     createPlatformsCopy() {
-      const platforms = Object.values(this.platforms);
+      const platforms = Object.assign({}, this.platforms);
       return platforms;
     },
     selectItem(platform) {
@@ -113,18 +113,17 @@ export default {
 <style scoped lang="scss">
 @import 'src/assets/home';
 
-.list-complete-item {
-  transition: all 1s;
+.list-item {
   display: inline-block;
-  margin-right: 10px;
 }
-.list-complete-enter, .list-complete-leave-to
-/* .list-complete-leave-active below version 2.1.8 */ {
+
+.list-enter-active {
+  display: inline-block;
+  transition: opacity 1.2s;
+}
+.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
   opacity: 0;
-  transform: translateY(30px);
-}
-.list-complete-leave-active {
-  position: absolute;
+  transition: transform 0s;
 }
 
 </style>
