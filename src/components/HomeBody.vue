@@ -20,9 +20,9 @@
 
         <div class="port portfolio-masonry mb-3">
           <transition-group name="list" tag="div" class="portfolioContainer row">
-            <div class="col-lg-4"
+            <div class="col-lg-4 col-md-6"
               v-for="platform of filteredPlatforms"
-              v-bind:key="platform.name">
+              v-bind:key="platform.id">
               <a :href=platform.link target="_blank">
                 <div class="portfolio-box">
                   <div class="portfolio-box-img">
@@ -119,7 +119,7 @@ export default {
 
 .list-enter-active {
   display: inline-block;
-  transition: opacity 1.2s;
+  transition: opacity 1s;
 }
 .list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
   opacity: 0;

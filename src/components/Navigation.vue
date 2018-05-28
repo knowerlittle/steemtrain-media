@@ -5,7 +5,8 @@
       <!-- Logo -->
       <div>
         <router-link to="/" class="logo">
-          Steemtrain.Media        
+          <img class="train-logo" src="http://www.animatedimages.org/data/media/75/animated-train-image-0018.gif">.Media
+             
         </router-link>
       </div>
       <!-- Logo -->
@@ -103,6 +104,10 @@ export default {
 
 a {
   color: #777777
+}
+
+.train-logo {
+  width: 75px;
 }
 
 .slide-fade-enter-active {

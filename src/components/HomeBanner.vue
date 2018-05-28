@@ -15,7 +15,7 @@
 									<h2>Earn Money.</h2>
 									<h2>
 										<p></p>
-										<p><a class="start-link" href="start.html">How Do I Start?</a></p>
+										<p><router-link to="/start">How Do I Start?</router-link></p>
 									</h2>
 									<div class="video-frame">
 										<iframe class="video" 
@@ -53,7 +53,7 @@ export default {
 
 .video {
 	width: 100%;
-	height: 80%;
+	height: 100%;
 }
 
 
