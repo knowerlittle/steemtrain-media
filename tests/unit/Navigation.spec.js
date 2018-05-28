@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import { shallowComponent } from './helpers';
-import Navigation from '@/components/Navigation';
+import Navigation from '@/components/Navigation.vue';
 
 describe('Navigation.vue', () => {
 
