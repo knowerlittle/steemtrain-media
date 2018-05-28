@@ -17,7 +17,13 @@
 										<p></p>
 										<p><a class="start-link" href="start.html">How Do I Start?</a></p>
 									</h2>
-									<!-- <iframe width="100%" height="300" src="https://emb.d.tube/#!/knowerlittle/hbuhsx2n" frameborder="0" allowfullscreen></iframe> -->
+									<div class="video-frame">
+										<iframe class="video" 
+													  src="https://emb.d.tube/#!/knowerlittle/hbuhsx2n" 
+														frameborder="0" 
+														allowfullscreen>
+										</iframe>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -37,6 +43,19 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 @import 'src/assets/variables';
+
+.video-frame {
+	width: 100%;
+	height: 300px;
+	max-width: 534px;
+	margin: 0 auto;
+}
+
+.video {
+	width: 100%;
+	height: 80%;
+}
+
 
 .home-height {
 	border-bottom: 1px solid #f3f3f3;
@@ -68,9 +87,6 @@ export default {
 	background: $primary;
 	font-weight: 500;
 	color: #fff;
-	padding: 2px 12px;
-	border-radius: 10px;
-	box-shadow: 0px 0px 15px #888888;
 }
 
 </style>
