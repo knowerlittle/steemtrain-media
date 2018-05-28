@@ -1,12 +1,9 @@
 import { expect } from 'chai';
+import { shallowComponent } from './helpers';
+import NavLinks from '@/components/NavLinks';
 
-import Navigation from '@/components/Navigation.vue';
-
-import { shallowMount } from '@vue/test-utils';
-const shallowComponent = () => { 
-  const wrapper = shallowMount(Navigation, {
-    stubs: ['router-link', 'router-view']
+describe('NavLinks.vue', () => {
+  describe('general', () => {
+    const wrapper = sahh
   });
-
-  return wrapper.vm;
-};
+});
