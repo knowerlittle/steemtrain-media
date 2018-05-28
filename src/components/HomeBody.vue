@@ -45,7 +45,6 @@
   </div>
 
 </template>
-
 <script>
 import platforms from '@/components/menuSelection.js';
 
