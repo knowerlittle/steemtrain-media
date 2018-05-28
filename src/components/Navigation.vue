@@ -7,8 +7,6 @@
         <router-link to="/" class="logo">
           Steemtrain.Media        
         </router-link>
-        <!-- <br> Window height: {{ windowWidth }} <br/>
-        {{ txt }} -->
       </div>
       <!-- Logo -->
 
@@ -27,49 +25,16 @@
         </div>
       </div>
 
-      
         <div v-if="isMobile" > 
           <transition name="slide-fade">
             <div v-if="isOpen" id="navigation" v-bind:class="{open: isOpen}">
-              <ul class="navigation-menu">
-                <li class="has-submenu" @click="closeMenu">
-                  <router-link to="/" exact>Home</router-link>
-                </li>
-                
-                <li class="has-submenu" @click="closeMenu">
-                  <router-link to="/start" exact>How To Start</router-link>
-                </li>
-
-                <li class="has-submenu" @click="closeMenu">
-                  <router-link to="/about" exact>About</router-link>
-                </li>
-                
-                <li class="has-submenu" @click="closeMenu">
-                  <router-link to="/contact" exact>Contact</router-link>
-                </li>
-              </ul>
+              <NavLink @close="closeMenu"/>
             </div>
           </transition>
         </div>
         <div v-else>
           <div id="navigation">
-            <ul class="navigation-menu">
-              <li class="has-submenu" @click="closeMenu">
-                <router-link to="/" exact>Home</router-link>
-              </li>
-              
-              <li class="has-submenu" @click="closeMenu">
-                <router-link to="/start" exact>How To Start</router-link>
-              </li>
-
-              <li class="has-submenu" @click="closeMenu">
-                <router-link to="/about" exact>About</router-link>
-              </li>
-              
-              <li class="has-submenu" @click="closeMenu">
-                <router-link to="/contact" exact>Contact</router-link>
-              </li>
-            </ul>
+             <NavLink @close="closeMenu"/>
           </div>
         </div>
 
@@ -78,8 +43,14 @@
 </template>
 
 <script>
+import NavLink from '@/components/NavLinks';
+
 export default {
   name: 'Navigation',
+
+  components: {
+    NavLink,
+  },
 
   mounted() {
     this.windowWidth = window.innerWidth;
@@ -127,7 +98,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import 'src/assets/navigation';
 
 a {
