@@ -1,4 +1,4 @@
-import chai, { expect, should } from 'chai';
+import chai, { expect } from 'chai';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 import { shallowComponent } from './helpers';
