@@ -5,7 +5,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <div class="pt-4 mt-5 page-next-level">
+            <div class="mt-5">
               <h4>How To Start</h4>
                 <div class="page-next"><span>Find out how to open a STEEMIT account and turn crypto into cash</span> </div>
             </div>
@@ -14,7 +14,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section ">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -48,6 +48,54 @@
                   Let the community know who you are what you're thinking of bringing to the table.
                 </p>
                 <p>Start posting content!</p>
+              </div>
+            </article>
+
+            <article class="post">
+              <div class="post-header">
+                <h2 class="post-title">3. Turn Steem & SBD into Bitcoin</a></h2>
+              </div>
+
+              <div class="post-content">
+                <p>
+                  Once people upvote your content you'll start earning either Steem or SBD (Steem-Backed-Dollars).
+                  You'll learn the basics of trading here as you'll need to convert them into Bitcoin <i>(or one of the cryptos supported by Coinbase)</i> before you can change it into your local currency. 
+                </p>
+                <p>a) Sign up to the crypto exchange BINANCE.</i> <a href="https://www.binance.com/?ref=10130710" target="_blank">Click here to sign up to BINANCE.</a></p>
+                <p>b) Transfer your Steem/SBD from your Steemit wallet to your BINANCE trading account.</p>
+                <p>c) Convert your Steem/SBD into Bitcoin (BTC).</p>
+              </div>
+            </article>
+
+
+            <article class="post">
+              <div class="post-header">
+                <h2 class="post-title">4. Turn Bitcoin into Cash</h2>
+              </div>
+
+              <div class="post-content">
+                <p>a) Sign up to COINBASE. <a href="https://www.coinbase.com/join/58c2b27c4bb3723c7b7fe09b" target="_blank"> Click here to sign up to COINBASE.</a></p>
+                <p>b) Move your Bitcoin from your BINANCE account to your COINBASE account.</p>
+                <p><b>If you're in the States,</b> add your US Bank Account and cash out to it.</p>
+                <p><b>If you in the UK</b>, it's recommended to cash out to a Euro bank account because it's cheaper and faster</p>
+                <p><b>NOTE:</b><i> If you don't have a Euro bank account REVOLUT offers one for free. <a href="https://www.revolut.com/r/noahb3nz" target="_blank">Click here to open a free REVOLUT bank account</a></i> </p>
+              </div>
+            </article>
+
+            <article class="post">
+              <div class="post-header">
+                <h2 class="post-title"><a href="blog-single.html">Congratulations</a></h2>
+              </div>
+
+              <div class="post-content">
+                <p>You've succesfully turned your precious crypto into boring cash but sometimes we do need to eat. :-)</p>
+                <p>
+                  The process listed above may seem quite long in the beginnning. It can be difficult to grasp the ecosystem of this new economy.
+                  There are quite a few things to sign up to and each step has its own learning curve.
+                  All the platforms listed above will have their own help and explainer section if you would like to learn more. 
+                  Steemit is also an extremely useful resource and you can ask people questions directly.
+                </p>
+                <p>We hope you enjoy and learn more about the new economy that blockchain has to offer.</p>
               </div>
             </article>
 
@@ -93,8 +141,9 @@ export default {
 }
 
 .post + .post {
-    border-top: 1px solid rgba(238, 238, 238, .7);
-    padding-top: 50px;
+    // border-top: 1px solid rgba(238, 238, 238, .7);
+    border-top: 1px solid rgba(230, 238, 238, 1);
+    padding-top: 30px;
 }
 
 .post-preview {
