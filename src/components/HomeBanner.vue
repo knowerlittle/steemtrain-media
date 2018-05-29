@@ -44,6 +44,14 @@ export default {
 <style scoped lang="scss">
 @import 'src/assets/variables';
 
+.home-banner {
+	background: rgb(160,216,239); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(160,216,239,1) 0%, rgba(160,216,239,1) 0%, rgba(160,216,239,1) 0%, rgba(221,241,249,1) 49%, rgba(254,255,255,1) 95%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, rgba(160,216,239,1) 0%,rgba(160,216,239,1) 0%,rgba(160,216,239,1) 0%,rgba(221,241,249,1) 49%,rgba(254,255,255,1) 95%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(160,216,239,1) 0%,rgba(160,216,239,1) 0%,rgba(160,216,239,1) 0%,rgba(221,241,249,1) 49%,rgba(254,255,255,1) 95%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a0d8ef', endColorstr='#feffff',GradientType=0 ); /* IE6-9 */
+}
+
 .video-frame {
 	width: 100%;
 	height: 300px;

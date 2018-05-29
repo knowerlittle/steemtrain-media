@@ -111,11 +111,11 @@
 }
 
 .portfolio-box:hover .portfolio-box-img:after {
-  background: rgba(40, 40, 46, 0.8);
+  background: rgba(255, 255, 255, 0.2)
 }
 
 .portfolio-box:hover .portfolio-box-img > img {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 .gallary-title {

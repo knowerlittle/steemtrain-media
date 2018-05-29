@@ -1,6 +1,6 @@
 <template>
   <div class="home-body">
-    <section class="section bg-light">
+    <section class="section">
       <div class="container">
 
         <div class="row">
@@ -19,12 +19,12 @@
         </div>
 
         <div class="port portfolio-masonry mb-3">
-          <transition-group name="list" tag="div" class="portfolioContainer row">
-            <div class="col-lg-4 col-md-6"
+          <transition-group tag="div" name="list" class="portfolioContainer row">
+            <div class="col-lg-4 col-md-6 margin"
               v-for="platform of filteredPlatforms"
               v-bind:key="platform.id">
               <a :href=platform.link target="_blank">
-                <div class="portfolio-box">
+                <div class="portfolio-box drop-shadow">
                   <div class="portfolio-box-img">
                     <img v-bind:src=platform.img class="img-fluid" alt="member-image">
                   </div>
@@ -35,10 +35,9 @@
                 </div>
                </a>
              </div>
-           </transition-group>
+          </transition-group>
+          </div>
         </div>
-
-      </div>
     </section>
 
      <!-- <Footer/> -->
@@ -112,17 +111,36 @@ export default {
 <style scoped lang="scss">
 @import 'src/assets/home';
 
-.list-item {
-  display: inline-block;
+.home-body {
+  height: 100vh;
 }
 
-.list-enter-active {
+.drop-shadow {
+  box-shadow: 0px 2px 18px -7px #888888;
+}
+
+.portfolioContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.list-item {
   display: inline-block;
-  transition: opacity 1s;
+  margin-right: 10px;
 }
-.list-enter, .list-leave-to {
+.list-enter-active {
+  transition: all 0.5s;
+}
+
+ .list-leave-active {
+  transition: all 0s;
+ }
+
+.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+  position: absolute;
+  top: 50%;
   opacity: 0;
-  transition: transform 0s;
 }
+
 
 </style>

@@ -1,19 +1,22 @@
 <template>
   <div class="start">
-    <h2>How to start</h2>
+    <StartBody/>
   </div>
 </template>
 
 <script>
+import StartBody from '@/components/StartBody';
+
 export default {
-  name: 'StatPage',
+  name: 'StartPage',
+  components: {
+    StartBody,
+  },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .start {
-  padding-top: 100px;
   height: 100vh;
 }
 
