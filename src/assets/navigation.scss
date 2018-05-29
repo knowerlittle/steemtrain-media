@@ -229,7 +229,7 @@
       white-space: nowrap;
       font-size: 14px;
       letter-spacing: 0.03em;
-      color: #7a7d84;
+      color: $tertiary;
       transition: all 0.3s;
   }
 
@@ -315,7 +315,7 @@
       white-space: nowrap;
       font-size: 14px;
       letter-spacing: 0.03em;
-      color: #7a7d84;
+      color: $tertiary;
       transition: all 0.3s;
   }
   #topnav .navigation-menu .submenu.open .has-submenu.open > a {
@@ -364,7 +364,7 @@
   }
   #navigation {
       position: absolute;
-      top: 70px;
+      top: 62px;
       left: 0;
       width: 100%;
       display: none;

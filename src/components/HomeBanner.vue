@@ -15,7 +15,7 @@
 									<h2>Earn Money.</h2>
 									<h2>
 										<p></p>
-										<p><router-link to="/start">How Do I Start?</router-link></p>
+										<p><router-link to="/start" class="flashit">How Do I Start?</router-link></p>
 									</h2>
 									<div class="video-frame">
 										<iframe class="video" 
@@ -43,6 +43,23 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 @import 'src/assets/variables';
+
+.flashit{
+  color:$secondary;
+	-webkit-animation: flash linear 0.06s infinite;
+	animation: flash linear 0.06s infinite;
+	font-weight: 500;
+}
+@-webkit-keyframes flash {
+	// 0% { opacity: 1; } 
+	50% { opacity: .5; } 
+	100% { opacity: 1; }
+}
+@keyframes flash {
+	// 0% { opacity: 1; } 
+	50% { opacity: .5; } 
+	100% { opacity: 1; }
+}
 
 .home-banner {
 	background: rgb(160,216,239); /* Old browsers */
