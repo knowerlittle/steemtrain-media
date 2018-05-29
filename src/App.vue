@@ -5,6 +5,7 @@
             <transition name="fade" mode="out-in">
               <router-view/>
             </transition>
+          <Footer/>
         </div>
     </div>
 </template>
@@ -13,11 +14,13 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import Navigation from './components/Navigation.vue';
+import Footer from './components/Footer.vue';
 
 export default {
   name: 'app',
   components: {
     Navigation,
+    Footer,
   },
 };
 
@@ -29,6 +32,7 @@ export default {
 
 #app {
   font-family: 'Roboto Mono', monospace;
+  
   ::selection {
     background: $secondary;
     color: #ffffff;
@@ -50,8 +54,14 @@ export default {
 .fade-enter-active, .fade-leave-active {
   transition: opacity .3s;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.fade-enter, .fade-leave-to {
   opacity: 0;
+}
+
+.section {
+    padding-top: 30px;
+    padding-bottom: 80px;
+    position: relative;
 }
 
 

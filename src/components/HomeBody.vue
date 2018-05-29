@@ -26,9 +26,9 @@
               <a :href=platform.link target="_blank">
                 <div class="portfolio-box">
                   <div class="portfolio-box-img">
-                    <img v-bind:src=platform.img class="img-fluid" alt="member-image"></img>
+                    <img v-bind:src=platform.img class="img-fluid" alt="member-image">
                   </div>
-                  <div class="gallery-title text-center">
+                  <div class="gallary-title text-center">
                     <h6><a href="" target="_blank">{{ platform.name }}</a></h6>
                     <span>{{ platform.description }}</span>
                   </div>
@@ -40,6 +40,8 @@
 
       </div>
     </section>
+
+     <!-- <Footer/> -->
   </div>
 
 </template>

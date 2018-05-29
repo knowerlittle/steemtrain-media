@@ -5,8 +5,7 @@
       <!-- Logo -->
       <div>
         <router-link to="/" class="logo">
-          <img class="train-logo" src="http://www.animatedimages.org/data/media/75/animated-train-image-0018.gif">.Media
-             
+          <img class="train-logo" src="http://www.animatedimages.org/data/media/75/animated-train-image-0018.gif"><span class="media-text">.Media</span>
         </router-link>
       </div>
       <!-- Logo -->
@@ -102,12 +101,21 @@ export default {
 <style lang="scss">
 @import 'src/assets/navigation';
 
+header {
+  max-height: 10%;
+}
+
+.media-text {
+  position: relative;
+  top: 5px;
+}
+
 a {
   color: #777777
 }
 
 .train-logo {
-  width: 75px;
+  width: 65px;
 }
 
 .slide-fade-enter-active {
