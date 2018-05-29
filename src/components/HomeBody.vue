@@ -22,7 +22,7 @@
           <transition-group tag="div" name="list" class="portfolioContainer row">
             <div class="col-lg-4 col-md-6 margin"
               v-for="platform of filteredPlatforms"
-              v-bind:key="platform.id">
+              v-bind:key="Math.random()">
               <a :href=platform.link target="_blank">
                 <div class="portfolio-box drop-shadow">
                   <div class="portfolio-box-img">
@@ -129,7 +129,7 @@ export default {
   margin-right: 10px;
 }
 .list-enter-active {
-  transition: all 0.5s;
+  transition: all 1s;
 }
 
  .list-leave-active {

@@ -46,8 +46,8 @@ export default {
 
 .flashit{
   color:$secondary;
-	-webkit-animation: flash linear 0.06s infinite;
-	animation: flash linear 0.06s infinite;
+	-webkit-animation: flash linear 10s infinite;
+	animation: flash linear 10s infinite;
 	font-weight: 500;
 }
 @-webkit-keyframes flash {
