@@ -56,7 +56,6 @@ export default {
 	height: 100%;
 }
 
-
 .home-height {
 	border-bottom: 1px solid #f3f3f3;
 	border-top: 1px solid #f2f2f2;
@@ -87,6 +86,9 @@ export default {
 	background: $primary;
 	font-weight: 500;
 	color: #fff;
+	padding: 2px 12px;
+	border-radius: 3px;
+	letter-spacing: 3px;
 }
 
 </style>
