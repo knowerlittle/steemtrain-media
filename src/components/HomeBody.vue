@@ -64,12 +64,12 @@ export default {
         { id: 8, name: 'Funding'},
       ],
       platforms,
-      filteredPlatforms: [],
+      filteredPlatforms: {},
     }
   },
 
   mounted() {
-    this.filteredPlatforms = this.createPlatformsCopy();
+    this.createNewCopy();
   },
 
   methods: {
@@ -83,9 +83,6 @@ export default {
     },
     isSelected({ name }) {
       return this.currentSelection === name;
-    },
-    filterItems({ tag }) {
-      return this.currentSelection === tag;
     },
     createNewCopy() {
       return this.filteredPlatforms = this.currentSelection === 'All' ? 
@@ -121,7 +118,7 @@ export default {
   display: inline-block;
   transition: opacity 1s;
 }
-.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+.list-enter, .list-leave-to {
   opacity: 0;
   transition: transform 0s;
 }
