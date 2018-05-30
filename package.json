@@ -7,12 +7,14 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
-    "test:e2e": "vue-cli-service test:e2e"
+    "test:e2e": "vue-cli-service test:e2e",
+    "start": "vue-cli-service serve",
+    "now-start": "serve --single ./dist"
   },
   "dependencies": {
     "bootstrap-vue": "^2.0.0-rc.11",
     "lodash.clonedeep": "^4.5.0",
-    "popper.js-lite": "^2.0.0-rc.1",
+    "serve": "^7.1.2",
     "sinon": "^5.0.10",
     "sinon-chai": "^3.1.0",
     "vue": "^2.5.16",

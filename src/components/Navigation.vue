@@ -124,8 +124,7 @@ a {
 .slide-fade-leave-active {
   transition: all .3s ease;
 }
-.slide-fade-enter, .slide-fade-leave-to
-/* .slide-fade-leave-active below version 2.1.8 */ {
+.slide-fade-enter, .slide-fade-leave-to {
   transform: translateY(-20px);
   opacity: 0;
 }
