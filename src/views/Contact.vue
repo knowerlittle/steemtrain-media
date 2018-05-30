@@ -1,11 +1,22 @@
 <template>
   <div class="contact">
-    <h1>Contact</h1>
+    <ContactBody/>
   </div>
 </template>
 
 <script>
+import ContactBody from '@/components/ContactBody';
+
 export default {
-  name: 'contact'
+  name: 'ContactPage',
+  components: {
+    ContactBody,
+  },
 };
 </script>
+
+<style scoped lang="scss">
+.about {
+  height: 100vh;
+}
+</style>

@@ -64,6 +64,11 @@
                 <p>a) Sign up to the crypto exchange BINANCE.</i> <a href="https://www.binance.com/?ref=10130710" target="_blank">Click here to sign up to BINANCE.</a></p>
                 <p>b) Transfer your Steem/SBD from your Steemit wallet to your BINANCE trading account.</p>
                 <p>c) Convert your Steem/SBD into Bitcoin (BTC).</p>
+                <p class="align-image">
+                  <img class="gif-size" v-bind:src=steemitCash alt="steemit cash">
+                  <img class="gif-size" v-bind:src=bitcoinJump alt="bitcoin jump">
+                  <img class="gif-size" v-bind:src=steemitCash alt="steemit cash">
+                </p>
               </div>
             </article>
 
@@ -107,13 +112,31 @@
 </template>
 
 <script>
+import steemitCash from '@/assets/img/steemit-cash.gif';
+import bitcoinJump from '@/assets/img/bitcoin-jump.gif';
+
 export default {
   name: 'StartBody',
+
+  data() {
+    return {
+      steemitCash,
+      bitcoinJump,
+    }
+  },
 }
 </script>
 
 <style lang="scss">
 @import 'src/assets/variables';
+.align-image {
+  text-align: center;
+}
+
+.gif-size {
+  width: 10%;
+}
+
 
 .gradient-bg {
 	background: rgb(160,216,239); /* Old browsers */
