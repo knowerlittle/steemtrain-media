@@ -108,12 +108,39 @@ export default {
 }
 
 .home-title span {
+	line-height: 1.5;
 	background: $primary;
 	font-weight: 500;
 	color: #fff;
-	padding: 2px 12px;
+	padding: 0px 15px 10px 15px;
 	border-radius: 3px;
 	letter-spacing: 3px;
+  text-shadow: 0 1px 0 #ccc,
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
 }
+
+// .home-title span {
+//   -webkit-box-sizing: content-box;
+//   -moz-box-sizing: content-box;
+//   box-sizing: content-box;
+//   border: none;
+//   font: normal 50px/normal "Chau Philomene One", Helvetica, sans-serif;
+//   color: rgb(51, 51, 51);
+//   text-align: center;
+//   -o-text-overflow: clip;
+//   text-overflow: clip;
+//   letter-spacing: 3px;
+//   text-shadow: -3px 0 1px rgb(30,242,241) , 3px 0 1px rgb(246,5,10) ;
+// }
 
 </style>

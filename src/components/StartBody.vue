@@ -133,9 +133,6 @@ export default {
   text-align: center;
 }
 
-.gif-size {
-  width: 10%;
-}
 
 
 .gradient-bg {
@@ -313,4 +310,16 @@ export default {
 .media-body p{
     line-height: 24px;
 }
+
+
+.gif-size {
+  width: 10%;
+}
+
+@media (max-width: 992px) {
+  .gif-size {
+    width: 30%;
+  }
+}
+
 </style>

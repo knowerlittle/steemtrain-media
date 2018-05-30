@@ -55,6 +55,10 @@
           </div>
         </div>
 
+        <div class="image-container">
+          <img class="bitcoin-tap" v-bind:src="bitcoinDrip" alt="Bitcoin Tap">
+        </div>
+
       </div>
     </section>
 
@@ -62,12 +66,14 @@
 </template>
 <script>
 import steemImage from '@/assets/img/about.png';
+import bitcoinDrip from '@/assets/img/bitcoin-water.gif';
 
 export default {
   name: 'AboutBoyd',
   data() {
     return {
       steemImage,
+      bitcoinDrip,
     }
   },
 }
@@ -75,6 +81,11 @@ export default {
 
 <style lang="scss">
 @import 'src/assets/variables';
+
+.image-container {
+  padding-top: 10px;
+  text-align: center;
+}
 
 .about-body {
   height: 100vh;
@@ -93,4 +104,13 @@ export default {
   box-shadow: 6px 7px 35px #d6d6d6
 }
 
+.bitcoin-tap {
+  width: 15%;
+}
+
+@media (max-width: 992px) {
+  .bitcoin-tap {
+    width: 30%;
+  }
+}
 </style>
