@@ -1,11 +1,23 @@
 <template>
   <div class="about">
-    <h1>About</h1>
+    <AboutBody/>
   </div>
 </template>
 
 <script>
+import AboutBody from '@/components/AboutBody';
+
 export default {
-  name: 'about'
+  name: 'AboutPage',
+  components: {
+    AboutBody,
+  },
 };
 </script>
+
+<style scoped lang="scss">
+.about {
+  height: 100vh;
+}
+
+</style>
