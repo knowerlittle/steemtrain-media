@@ -18,7 +18,7 @@
       <div class="container">
         <div class="contact-info">
           <p class="text-muted">steemtrain@protonmail.com</p>
-          <img v-bind:src="emailGif" alt="Email" class="img-fluid mx-auto d-block blox-shadow">
+          <img src="https://i.imgur.com/aGSX5el.gif" alt="Email" class="img-fluid mx-auto d-block blox-shadow">
         </div>
       </div>
     </section>
@@ -27,15 +27,9 @@
 </template>
 
 <script>
-import emailGif from '@/assets/img/emailGif.gif';
 
 export default {
   name: 'ContactBody',
-  data() {
-    return {
-      emailGif,
-    }
-  },
 }
 </script>
 

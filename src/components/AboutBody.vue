@@ -56,7 +56,7 @@
         </div>
 
         <div class="image-container">
-          <img class="bitcoin-tap" v-bind:src="bitcoinDrip" alt="Bitcoin Tap">
+          <img class="bitcoin-tap" src="https://i.imgur.com/aPY5q63.gifv" alt="Bitcoin Tap">
         </div>
 
       </div>
@@ -66,14 +66,12 @@
 </template>
 <script>
 import steemImage from '@/assets/img/about.png';
-import bitcoinDrip from '@/assets/img/bitcoin-water.gif';
 
 export default {
   name: 'AboutBoyd',
   data() {
     return {
       steemImage,
-      bitcoinDrip,
     }
   },
 }
