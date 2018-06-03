@@ -5,7 +5,7 @@
       <!-- Logo -->
       <div>
         <router-link to="/" class="logo">
-          <img class="train-logo" src="http://www.animatedimages.org/data/media/75/animated-train-image-0018.gif"><span class="media-text">.Media</span>
+          <img class="train-logo" v-bind:src="steemtrainLogo"><span class="media-text">.Media</span>
         </router-link>
       </div>
       <!-- Logo -->
@@ -44,6 +44,7 @@
 
 <script>
 import NavLink from '@/components/NavLinks';
+import steemtrainLogo from '@/assets/img/steemtrainLogo.gif';
 
 export default {
   name: 'Navigation',
@@ -68,6 +69,7 @@ export default {
       windowWidth: 0,
       txt: '',
       isMobile: false,
+      steemtrainLogo,
     }
   },
 
