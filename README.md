@@ -14,6 +14,7 @@ A web portal for social platforms built on top of the Steem Blockchain.
 <center>
 <img src="https://i.imgur.com/paJyFWX.gif" width="70px"/>
 </center>
+
 ---
 <center>No Copyright 2018</center>
 
