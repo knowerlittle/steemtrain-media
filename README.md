@@ -1,8 +1,9 @@
 
-## <img src="https://i.imgur.com/lbMq6nC.gif" width="70px">Steemtrain.media (https://steemtrain.media)>
+## Steemtrain.media <img src="https://i.imgur.com/lbMq6nC.gif" width="60px" />
 
-A web portal for social platforms built on top of the Steem Blockchain.
+<p>A web portal for social platforms built on top of the Steem Blockchain.</p>
 <p>Create content and earn cryptocurrency.</p>
+<p><img src="https://i.imgur.com/6DsySBSt.gif" width="50px"/></p>
 
 
 ### Tests
@@ -11,14 +12,5 @@ A web portal for social platforms built on top of the Steem Blockchain.
 ### Start 
 `yarn serve`
 
-<center>
-<img src="https://i.imgur.com/paJyFWX.gif" width="70px"/>
-</center>
-
 ---
-<center>No Copyright 2018</center>
-
-
-
-
-
+No Copyright 2018
