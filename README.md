@@ -1,9 +1,9 @@
-## ![Steemtrain](https://i.imgur.com/lbMq6nC.gifv =150x) Steemtrain.media (https://steemtrain.media)
+## [Steemtrain](https://i.imgur.com/lbMq6nC.gifv =150x) Steemtrain.media (https://steemtrain.media)
 
 A web portal for social platforms built on top of the Steem Blockchain.
-Create content and earn cryptocurrency.
+<p>Create content and earn cryptocurrency.</p>
 
-![SBD](https://i.imgur.com/paJyFWX.gifv =150x)
+[SBD](https://i.imgur.com/paJyFWX.gifv =150x)
 
 ### Tests
 `yarn test:unit`
